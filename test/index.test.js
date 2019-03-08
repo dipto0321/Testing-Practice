@@ -25,7 +25,25 @@ describe('calculator', () => {
   });
 });
 
+// Test for caesar Cipher
 test('caesarCipher', () => {
   expect(index.caesarCipher('middle-Outz', 2)).toBe('okffng-Qwvb');
   expect(index.caesarCipher('microverse?', 7)).toBe('tpjyvclyzl?');
+});
+
+//  Test for array analyzer
+
+test('arrayAnalyzer', () => {
+  expect(index.arrayAnalyzer([1, 8, 3, 4, 2, 6])).toEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6
+  });
+  expect(index.arrayAnalyzer([2, 49, 100, 58])).toEqual({
+    average: 52.25,
+    min: 2,
+    max: 100,
+    length: 4
+  });
 });
