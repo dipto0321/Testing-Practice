@@ -20,14 +20,18 @@ const calculator = (() => ({
 }))();
 
 const caesarCipher = (s, k) => {
-  const sArr = s.split("");
-  const small = "abcdefghijklmnopqrstuvwxyz";
+  const sArr = s.split('');
+  const small = 'abcdefghijklmnopqrstuvwxyz';
   const capital = small.toUpperCase();
-  return sArr.map((letter) => {
-    const A = "A".charCodeAt(0);
-    const Z = "Z".charCodeAt(0);
-    const a = "a".charCodeAt(0);
-    const z = "z".charCodeAt(0);
+  return strMap(sArr, k, small, capital);
+};
+
+const strMap = (sArr, k, small, capital) => (
+  sArr.map((letter) => {
+    const A = 'A'.charCodeAt(0);
+    const Z = 'Z'.charCodeAt(0);
+    const a = 'a'.charCodeAt(0);
+    const z = 'z'.charCodeAt(0);
     const l = letter.charCodeAt(0);
     const enc = l + k;
     if (!small.includes(letter) && !capital.includes(letter)) return letter;
@@ -41,8 +45,8 @@ const caesarCipher = (s, k) => {
         enc <= Z ? String.fromCharCode(enc) : String.fromCharCode(((l - A + k) % 26) + A)
       );
     }
-  }).join("");
-};
+  }).join(''));
+
 
 const arrayAnalyzer = arr => ({
   average: (arr.reduce((a, b) => a + b) / arr.length),
