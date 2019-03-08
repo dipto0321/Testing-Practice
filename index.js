@@ -19,6 +19,7 @@ const calculator = (() => ({
   },
 }))();
 
+
 const caesarCipher = (s, k) => {
   const sArr = s.split('');
   const small = 'abcdefghijklmnopqrstuvwxyz';

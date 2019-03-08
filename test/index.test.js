@@ -28,7 +28,8 @@ describe('calculator', () => {
 // Test for caesar Cipher
 test('caesarCipher', () => {
   expect(index.caesarCipher('middle-Outz', 2)).toBe('okffng-Qwvb');
-  expect(index.caesarCipher('microverse?', 7)).toBe('tpjyvclyzl?');
+  expect(index.caesarCipher('microverse.>?', 7)).toBe('tpjyvclyzl.>?');
+  expect(index.caesarCipher('Microverse', 7)).toBe('Tpjyvclyzl');
 });
 
 //  Test for array analyzer
