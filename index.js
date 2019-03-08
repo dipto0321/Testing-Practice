@@ -19,8 +19,34 @@ const calculator = (() => ({
   },
 }))();
 
+const caesarCipher = (s, k) => {
+  const sArr = s.split("");
+  const small = "abcdefghijklmnopqrstuvwxyz";
+  const capital = small.toUpperCase();
+  return sArr.map((letter) => {
+    const A = "A".charCodeAt(0);
+    const Z = "Z".charCodeAt(0);
+    const a = "a".charCodeAt(0);
+    const z = "z".charCodeAt(0);
+    const l = letter.charCodeAt(0);
+    const enc = l + k;
+    if (!small.includes(letter) && !capital.includes(letter)) return letter;
+    if (small.includes(letter)) {
+      return (
+        enc <= z ? String.fromCharCode(enc) : String.fromCharCode(((l - a + k) % 26) + a)
+      );
+    }
+    if (capital.includes(letter)) {
+      return (
+        enc <= Z ? String.fromCharCode(enc) : String.fromCharCode(((l - A + k) % 26) + A)
+      );
+    }
+  }).join("");
+};
+
 module.exports = {
   capitalize,
   reverse,
   calculator,
+  caesarCipher,
 };

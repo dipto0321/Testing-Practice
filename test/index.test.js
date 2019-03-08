@@ -24,3 +24,8 @@ describe('calculator', () => {
     expect(index.calculator.divide(4, 2)).toBe(2);
   });
 });
+
+test('caesarCipher', () => {
+  expect(index.caesarCipher('middle-Outz', 2)).toBe('okffng-Qwvb');
+  expect(index.caesarCipher('microverse?', 7)).toBe('tpjyvclyzl?');
+});
